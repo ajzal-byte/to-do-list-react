@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const ToDoForm = ({addTodo}) => {
+  const ToDoForm = ({addTodo}) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -9,13 +9,18 @@ const ToDoForm = ({addTodo}) => {
     addTodo(value);
     setValue('')
   }
+
+  const today = new Date();
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const dayOfWeek = days[today.getDay()];
+
   return (
     <form className='TodoForm'
     onSubmit={handleSubmit}>
       <input 
       type="text" 
       className='todo-input'
-      placeholder='What are the tasks today?'
+      placeholder={`What's up for ${dayOfWeek}`}
       value={value}
       onChange={(e) => setValue(e.target.value)} />
       <button type='submit'
