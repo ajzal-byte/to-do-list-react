@@ -19,7 +19,7 @@ const ToDoWrapper = () => {
   // Add todo
   const addTodo = (todo) => {
     // if(todos.length == 3) return alert("Only 3 tasks for free teir")
-    // if(todo.length === 0 || todo.trim() !== todo) return alert("Task can't be empty");
+    if(todo.length === 0 || todo.trim() !== todo) return alert("Task can't be empty");
     setTodos((prevTodos) => [
       ...prevTodos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
@@ -38,7 +38,7 @@ const ToDoWrapper = () => {
 
   // Delete todo
   const deleteTodo = (id) => {
-    // if(window.confirm("Are you sure?") === false) return
+    if(window.confirm("Are you sure?") === false) return
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
